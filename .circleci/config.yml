@@ -4,6 +4,8 @@ executors:
   my-executor:
     docker:
       - image: circleci/python:3.7
+    environment:
+      NUM_CPUS: 2  # more CPUs visible but we're throttled to 2, which breaks auto-detec
 
 jobs:
   build:
@@ -12,6 +14,10 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: tox
-          command: tox
+      - run: sudo pip install tox
+      - run: tox -p ${NUM_CPUS}
+      - store_artifacts:
+          path: /tmp/test-reports
+          destination: test-reports
+      - store_test_results:
+          path: /tmp/test-reports
