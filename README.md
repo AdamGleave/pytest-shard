@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/AdamGleave/pytest-shard.svg?style=svg)](https://circleci.com/gh/AdamGleave/pytest-shard)
+[![PyPI version](https://badge.fury.io/py/pytest-shard.svg)](https://badge.fury.io/py/pytest-shard)
 
 # pytest-shard
 
