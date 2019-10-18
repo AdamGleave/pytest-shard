@@ -18,6 +18,7 @@ setup(
     url="https://github.com/AdamGleave/pytest-shard",
     install_requires=["pytest"],
     long_description=read("README.md"),
+    long_description_content_type="text/markdown",
     python_requires=">=3.6",
     # the following makes a plugin available to pytest
     entry_points={"pytest11": ["pytest-shard = pytest_shard.pytest_shard"]},
