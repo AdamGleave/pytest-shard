@@ -9,8 +9,7 @@ executors:
 
 jobs:
   build:
-    docker:
-      - image: circleci/python:3.7
+    executor: my-executor
 
     steps:
       - checkout
