@@ -13,6 +13,7 @@ jobs:
 
     steps:
       - checkout
+      - run: sudo apt install python3.6
       - run: sudo pip install tox
       - run: tox -p ${NUM_CPUS}
       - store_artifacts:
