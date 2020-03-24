@@ -3,6 +3,7 @@
 import collections
 import itertools
 
+import six
 import hypothesis
 from hypothesis import strategies
 import pytest
@@ -36,7 +37,7 @@ def test_md5hash_deterministic(s):
     x = pytest_shard.md5hash(s)
     y = pytest_shard.md5hash(s)
     assert x == y
-    assert type(x) == int
+    assert isinstance(x, six.integer_types)
 
 
 @hypothesis.given(strategies.text(), strategies.text())

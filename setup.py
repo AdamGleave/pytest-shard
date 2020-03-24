@@ -15,11 +15,11 @@ setup(
     version=pytest_shard.__version__,
     packages=["pytest_shard"],
     license="MIT",
-    url="https://github.com/AdamGleave/pytest-shard",
+    url="https://github.com/singingwolfboy/pytest-shard",
     install_requires=["pytest"],
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
-    python_requires=">=3.6",
+    python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
     # the following makes a plugin available to pytest
     entry_points={"pytest11": ["pytest-shard = pytest_shard.pytest_shard"]},
     classifiers=[
@@ -28,6 +28,7 @@ setup(
         "Topic :: Software Development :: Testing",
         "Development Status :: 4 - Beta",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Operating System :: OS Independent",
