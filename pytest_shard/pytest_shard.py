@@ -36,15 +36,15 @@ def pytest_report_collectionfinish(config, items: Sequence[nodes.Node]) -> str:
     return msg
 
 
-def md5hash(x: str) -> int:
-    return int(hashlib.md5(x.encode()).hexdigest(), 16)
+def sha256hash(x: str) -> int:
+    return int.from_bytes(hashlib.sha256(x.encode()).digest(), "little")
 
 
 def filter_items_by_shard(
     items: Iterable[nodes.Node], shard_id: int, num_shards: int
 ) -> Sequence[nodes.Node]:
     """Computes `items` that should be tested in `shard_id` out of `num_shards` total shards."""
-    shards = [md5hash(item.nodeid) % num_shards for item in items]
+    shards = [sha256hash(item.nodeid) % num_shards for item in items]
 
     new_items = []
     for shard, item in zip(shards, items):

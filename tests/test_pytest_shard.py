@@ -32,17 +32,17 @@ def test_positive_int_with_non_num():
 
 
 @hypothesis.given(strategies.text())
-def test_md5hash_deterministic(s):
-    x = pytest_shard.md5hash(s)
-    y = pytest_shard.md5hash(s)
+def test_sha256hash_deterministic(s):
+    x = pytest_shard.sha256hash(s)
+    y = pytest_shard.sha256hash(s)
     assert x == y
     assert type(x) == int
 
 
 @hypothesis.given(strategies.text(), strategies.text())
-def test_md5hash_no_clash(s1, s2):
+def test_sha256hash_no_clash(s1, s2):
     if s1 != s2:
-        assert pytest_shard.md5hash(s1) != pytest_shard.md5hash(s2)
+        assert pytest_shard.sha256hash(s1) != pytest_shard.sha256hash(s2)
 
 
 MockItem = collections.namedtuple("MockItem", "nodeid")
