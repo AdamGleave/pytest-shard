@@ -32,7 +32,7 @@ def test_positive_int_with_non_num():
 
 
 @hypothesis.given(strategies.text())
-def test_sha2hash_deterministic(s):
+def test_sha256hash_deterministic(s):
     x = pytest_shard.sha256hash(s)
     y = pytest_shard.sha256hash(s)
     assert x == y
