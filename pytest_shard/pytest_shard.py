@@ -31,7 +31,7 @@ def pytest_addoption(parser):
 def pytest_report_collectionfinish(config, items: Sequence[nodes.Node]) -> str:
     """Log how many and, if verbose, which items are tested in this shard."""
     msg = f"Running {len(items)} items in this shard"
-    if config.option.verbose > 0:
+    if config.option.verbose > 0 and config.getoption("num_shards") > 1:
         msg += ": " + ", ".join([item.nodeid for item in items])
     return msg
 
