@@ -3,7 +3,7 @@ version: 2.1
 executors:
   my-executor:
     docker:
-      - image: circleci/python:3.6
+      - image: circleci/python:3.8
     environment:
       NUM_CPUS: 2  # more CPUs visible but we're throttled to 2, which breaks auto-detec
 
